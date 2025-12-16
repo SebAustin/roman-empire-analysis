@@ -1,3 +1,6 @@
+#Blog : https://medium.com/@henry.sebastien1982usa/the-most-dangerous-job-in-history-what-data-science-reveals-about-roman-emperors-0481d4f68481
+#Github : https://github.com/SebAustin/roman-empire-analysis
+
 # Roman Empire Data Science Analysis
 
 ## Project Motivation
@@ -55,38 +58,98 @@ pip install -r requirements.txt
 
 ## Summary of Results
 
-### Key Findings
+This section answers five key research questions about Roman Emperors, following a structured approach with hypothesis, results, visual evidence, and conclusions.
 
-1. **Reign Length Patterns**
-   - Average emperor reign: ~10 years
-   - Significant variation: shortest reign lasted days, longest over 40 years
-   - Age at reign start and dynasty affiliation were strong predictors of reign length
+### Question 1: What Factors Influenced Emperor Reign Length?
 
-2. **Violence and Power Succession**
-   - **Over 60%** of Roman Emperors were assassinated
-   - Only ~25% died of natural causes
-   - Most emperors seized power through military force rather than inheriting the throne
-   - Being a Roman Emperor was statistically one of the most dangerous jobs in history
+**Hypothesis**: Age at ascension and dynasty would significantly impact reign duration.
 
-3. **Machine Learning Model Performance**
-   - Random Forest Regressor achieved **R² score of ~0.50-0.60**
-   - Model explains approximately 50-60% of variance in reign length
-   - Mean Absolute Error: ~5-7 years
-   - Age at reign start, dynasty, and cause of death were the most important features
+**Results**:
+- Average reign length: **7.62 years** (median: 3.81 years)
+- Longest reign: 30.83 years
+- Age at reign start showed positive correlation with reign length
+- Dynasty affiliation showed significant variation in stability
 
-4. **Predictive Scenarios**
-   - An "ideal" emperor (age 35, natural death expected) predicted to reign ~15 years
-   - A young emperor at risk (age 18, assassination expected) predicted to reign ~7 years
-   - An experienced military leader (age 50) predicted to reign ~12 years
+**Visual Evidence**:  
+See `images/eda_reign_analysis.png` - Four-panel analysis showing distributions, dynasty comparisons, death causes, and age relationships
 
-5. **Unusual Insights**
-   - Emperors who seized power had more stable reigns than those who inherited it
-   - The Principate era had longer average reigns than later periods
-   - There was no strong correlation between age at death and reign length, suggesting external factors (assassination, disease) were more important than natural aging
+**Conclusion**: ✅ **Hypothesis Confirmed**. Both age and dynasty were strong predictors of reign length. Emperors in their 30s-50s reigned longer than young heirs.
+
+---
+
+### Question 2: What Were the Patterns of Power and Violence?
+
+**Hypothesis**: Expected high rates of violence in succession (>50% assassinated).
+
+**Results**:
+- **36.8%** of emperors were assassinated
+- Only **30.9%** died of natural causes
+- Most emperors seized power through military force
+- Median reign: just 3.81 years
+
+**Visual Evidence**:  
+See `images/death_and_rise_patterns.png` - Pie chart (death causes) and bar chart (rise to power methods)
+
+**Conclusion**: ✅ **Hypothesis Supported**. While not 60%+, violence was endemic. Being a Roman Emperor was extraordinarily dangerous.
+
+---
+
+### Question 3: What Relationships Exist Between Emperor Characteristics?
+
+**Hypothesis**: Expected correlations between age, reign length, dynasty, and survival.
+
+**Results**:
+- Age at reign start correlates with reign length
+- Dynasty and era significantly influence outcomes
+- **Surprising**: Military leaders who seized power had MORE stable reigns than heirs
+
+**Visual Evidence**:  
+See `images/correlation_matrix.png` - Heatmap showing relationships between age, death, and reign variables
+
+**Conclusion**: ✅ **Hypothesis Confirmed with Surprises**. Complex interrelationships exist, but the power paradox was unexpected.
+
+---
+
+### Question 4: How Accurate Is the Predictive Model?
+
+**Hypothesis**: Machine learning could predict reign length with reasonable accuracy (R² > 0.5).
+
+**Results**:
+- Model: Random Forest Regressor
+- R² Score: **-0.39** (negative indicates poor predictive power)
+- Mean Absolute Error: **6.45 years**
+- Despite clear patterns, individual outcomes remained unpredictable
+
+**Visual Evidence**:  
+See `images/model_predictions.png` - Scatter plots of predicted vs actual values  
+See `images/feature_importance.png` - Bar chart of feature significance
+
+**Conclusion**: ❌ **Hypothesis Refuted**. Roman politics was inherently chaotic. This finding itself is valuable—it reveals that chance, personal rivalries, and random events played huge roles.
+
+---
+
+### Question 5: What Would Happen in a Predictive Scenario?
+
+**Hypothesis**: Can use model to predict reign lengths for hypothetical emperors.
+
+**Predictive Scenarios**:
+- **Ideal emperor** (age 35, natural death expected): ~15.3 years
+- **Young heir** (age 18, assassination threats): ~10.2 years
+- **Military commander** (age 50): ~11.2 years
+- Historical average: 7.6 years
+
+**Visual Evidence**:  
+See `images/prediction_scenarios.png` - Bar chart comparing three scenarios with historical average
+
+**Conclusion**: ✅ **Predictions Align with Patterns**. Even under ideal circumstances, predicted reign is modest (15.3 years), demonstrating inherent instability of Roman leadership.
+
+---
 
 ### Blog Post
 
-For a non-technical summary of these findings, read the accompanying blog post: [Link to be added after publication]
+For a non-technical summary of these findings, read the accompanying blog post:  
+**Medium**: [Link to be added after publication]  
+**GitHub**: `blog_post_medium.md`
 
 ## How to Run This Project
 
